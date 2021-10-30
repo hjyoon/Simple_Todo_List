@@ -6,6 +6,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        p {
+            margin: 8px;
+        }
+
+        p>input {
+            border: 0px;
+        }
+    </style>
 </head>
 
 <body>
@@ -14,7 +23,8 @@
         <button>Add</button>
     </form>
     <div>
-
+        <p><input type='checkbox'><input type='text' value="test"></p>
+        <p><input type='checkbox'><input type='text' value="test2"></p>
     </div>
     <script>
         const form = document.querySelector('form')
