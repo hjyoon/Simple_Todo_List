@@ -1,12 +1,12 @@
-* {
-            font-family: serif;
-            font-size: 16px
-        }
+#todolist > p {
+    margin: 8px;
+}
 
-        p {
-            margin: 8px;
-        }
+.todo_item {
+    border: 0px;
+}
 
-        p>input {
-            border: 0px;
-        }
+.done {
+    text-decoration-line: line-through;
+    color: gray;
+}

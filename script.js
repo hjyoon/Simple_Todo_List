@@ -1,54 +1,46 @@
-const form = document.querySelector('form')
+const addBtn = document.querySelector('#add')
+const divTag = document.querySelector('#todolist')
 
-const addTodo = function (event) {
+const addTodo = (event) => {
     event.preventDefault()
 
-    const input = document.querySelector('input')
-    const content = input.value
-
     const pTag = document.createElement('p')
-    const inputTag = document.createElement('input')
-    inputTag.setAttribute('type', 'checkbox')
-    pTag.appendChild(inputTag)
+    const chkboxTag = document.createElement('input')
+    chkboxTag.setAttribute('type', 'checkbox')
+    pTag.appendChild(chkboxTag)
 
-    const getCheckboxValue = function (event) {
-        let result = '';
+    const getCheckboxValue = (event) => {
+        const parentNode = event.target.parentNode
+        const nodes = parentNode.childNodes
         if (event.target.checked) {
-            result = event.target.value;
+            nodes[1].classList.add('done')
         }
         else {
-            result = '';
+            nodes[1].classList.remove('done')
         }
-        document.alert(result)
     }
 
-    inputTag.addEventListener('checked', getCheckboxValue)
+    chkboxTag.addEventListener('click', getCheckboxValue)
 
-    const inputTag2 = document.createElement('input')
-    inputTag2.setAttribute('type', 'text')
-    inputTag2.setAttribute('placeholder', 'empty')
-    inputTag2.setAttribute('value', content)
-    pTag.appendChild(inputTag2)
-
-    //inputTag2.style.textDecorationLine = "line-through"
+    const inputTag = document.createElement('input')
+    inputTag.setAttribute('type', 'text')
+    inputTag.setAttribute('class', 'todo_item')
+    pTag.appendChild(inputTag)
 
     const XTag = document.createElement('button')
     XTag.append('X')
     pTag.appendChild(XTag)
 
     // 리스트 삭제하기
-    const removeParentNode = function (event) {
-        var target = event.target;
+    const removeParentNode = (event) => {
+        const target = event.target;
         target.removeEventListener("click", removeParentNode);
         target.parentNode.remove();
     }
 
     XTag.addEventListener('click', removeParentNode)
 
-    const divTag = document.querySelector('div')
     divTag.appendChild(pTag)
-
-    event.target.reset()
 }
 
-form.addEventListener('submit', addTodo)
+addBtn.addEventListener('click', addTodo)
