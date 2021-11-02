@@ -1,9 +1,34 @@
-#todolist > p {
-    margin: 8px;
+#container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-direction: column;
+    flex-wrap: nowrap;
 }
 
-.todo_item {
+#todolist > div {
+    display : flex;
+    justify-content : center;
+    align-items: stretch;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.todo_item_form {
     border: 0px;
+    flex-grow: 1;
+}
+
+.todo_item_form:focus {
+    outline: none;
+}
+
+.todo_item:hover .del_btn {
+    visibility: visible;
+}
+
+.del_btn {
+    visibility: hidden;
 }
 
 .done {
