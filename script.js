@@ -41,7 +41,10 @@ const makeItem = () => {
     del_btn.append('X')
     item.appendChild(del_btn)
 
-    del_btn.addEventListener('click', removeParentNode)
+    //del_btn.addEventListener('click', removeParentNode)
+    del_btn.addEventListener('click', (event) => {
+        item.remove()
+    })
 
     return item
 }
@@ -49,7 +52,7 @@ const makeItem = () => {
 const addTodo = (event) => {
     // event.preventDefault()
     const item = makeItem()
-    console.log(item)
+    // console.log(item)
     todolist.appendChild(item)
 }
 
